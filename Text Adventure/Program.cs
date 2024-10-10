@@ -1,4 +1,6 @@
-﻿namespace Text_Adventure
+﻿using System.Collections;
+
+namespace Text_Adventure
 {
     internal class Program
     {
@@ -16,9 +18,10 @@
             int age = 22;
             double distance = 140.12;
             char Roweysymbol = '@';
+            int chapter = 01;
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(age);
+            Console.WriteLine(chapter);
 
             Console.WriteLine("Welcome new person! I hope you had a great trip for this new world");
             Console.WriteLine("You have died in your previous life and you got another life chance");
@@ -39,49 +42,47 @@
             Console.WriteLine("Now," + playerName + " let's do some life choices...");
 
             Console.WriteLine("In this world there is 2 mini worlds");
-            Console.WriteLine("First, we have The Underground that is inhabited by the Chanalniacian ");
+            Console.WriteLine("First, we have the underground that is inhabited by the Chanalniacian ");
             Console.WriteLine("On the second, we have The Ground that is inhabited by the Chanalnian ");
-            Console.WriteLine("The mini worlds are far from each other of" + distance + "miles");
-            Console.WriteLine("In The Underground you will be an expert in technology and even be a Technomancer." +
+            Console.WriteLine("The mini worlds are far from each other of " + distance + " miles");
+            Console.WriteLine("In the underground you will be an expert in technology and even be a Technomancer." +
             "But in The Ground you will be in a mysthic world and even be a dragon slayer or choose your own power ");
-            Console.WriteLine("Do you want to do live in The Underground or The Ground?");
+            Console.WriteLine("Do you want to do live in the underground or the ground?  PS: Put it in lower case");
 
-            // Enums: Prompt player for a choice
+            // Enums & Code Branching: Prompt player for a choice
             string worldChoice = Console.ReadLine().ToLower();
 
-            if (worldChoice == "The Underground")
+            if (worldChoice == "the underground")
             {
                 Console.WriteLine("You are now in The Underground...");
                 Console.WriteLine("As you can see, you have to choose if you want to be a Technomancer or not");
-                Console.WriteLine("Do you want to be a Technomancer or not? (yes/no)");
+                Console.WriteLine("Do you want to be a Technomancer or not? ( use 'y' for yes or 'n' for no PS: Double click the letter of your choice)");
 
                 string technomancerChoice = Console.ReadLine().ToLower();
-                if (technomancerChoice == "yes")
+                char choiceYes = Console.ReadKey().KeyChar;
+                char choiceNo = Console.ReadKey().KeyChar;
+
+                switch (choiceYes)
                 {
-                    Console.WriteLine("Yor are now a Technomancer of level 1. If you train hard you can increase your level");
-                }
-                else if (technomancerChoice == "no")
-                {
-                    Console.WriteLine("You wisely decide not to be a technomancer but an expert in technology.");
-                }
-                else
-                {
-                    Console.WriteLine("Invalid choice. Please enter yes or no.");
+                    case 'y':
+                        Console.WriteLine("You are now a Technomancer of level 1. If you train hard you can increase your level");
+                        break;
+
+                    case 'n':
+
+                        Console.WriteLine("You wisely decide not to be a technomancer but an expert in technology.");
+                        break;
                 }
             }
-            else if (worldChoice == " The Ground")
+
+            else if (worldChoice == "the ground")
             {
                 Console.WriteLine("You are now in The Ground...");
                 Console.WriteLine("As you can see, you have to choose if you want to choose your power");
                 Console.WriteLine("What power do you want to aquire?");
-                string powwerchoice = Console.ReadLine();
+                string powerchoice = Console.ReadLine();
 
-
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice. Please enter  The Underground or The Ground");
-
+                Console.WriteLine("OMGGGG... I wish i was a " + powerchoice+ ". You will have better life than I");
             }
            
             // Opperators
@@ -109,3 +110,4 @@
             }
         }
     }
+    
