@@ -7,7 +7,7 @@ namespace Text_Adventure
         static void Main(string[] args)
         {
 
-            // Variables and Console
+            // Variables, Comments and Console
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
 
@@ -41,6 +41,7 @@ namespace Text_Adventure
 
             Console.WriteLine("Now," + playerName + " let's do some life choices...");
 
+            //Choice of mini worlds
             Console.WriteLine("In this world there is 2 mini worlds");
             Console.WriteLine("First, we have the underground that is inhabited by the Chanalniacian ");
             Console.WriteLine("On the second, we have The Ground that is inhabited by the Chanalnian ");
@@ -84,8 +85,11 @@ namespace Text_Adventure
 
                 Console.WriteLine("OMGGGG... I wish i was a " + powerchoice+ ". You will have better life than I");
             }
-           
-            // Opperators
+
+            // Opperators & Functions
+            {
+
+            }
             Console.WriteLine("In your previous life, MONEY was  everything...");
             Console.WriteLine("In this life too it will be the same. In Chanalnia we use Rowey for our curency for your daily use.");
             Console.WriteLine("For the beginning of your life How much would do like? Think wisely because after this amount you will have to work to get more.");
@@ -100,7 +104,7 @@ namespace Text_Adventure
             }
             else if (rowey <= 0 || rowey >= 30000)
             {
-                Console.WriteLine("EXCUSE YOUUUUUUUUUU !! Are you okay? ");
+                Console.WriteLine("EXCUSE YOUUUUUUUUUU !! Are you okay " + playerName + " ?");
             }
 
             Console.WriteLine("Press any key for next");
