@@ -4,21 +4,39 @@ namespace Text_Adventure
 {
     internal class Program
     {
+        static int age = 22;
+        static double distance = 140.12;
+        static char Roweysymbol = '@';
+        static int chapter = 01;
+        static string playerName;
+        static string playerGender;
+
         static void Main(string[] args)
         {
 
+            Setup();
+            MiniWorld();
+            Money();
+
+
+
+            Console.WriteLine("Press any key for next");
+            Console.ReadKey();
+
+
+        }
+
+        static void Setup()
+        {
             // Variables, Comments and Console
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
 
-           
+
 
             Console.Beep(1005, 1000);
 
-            int age = 22;
-            double distance = 140.12;
-            char Roweysymbol = '@';
-            int chapter = 01;
+
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(chapter);
@@ -27,7 +45,7 @@ namespace Text_Adventure
             Console.WriteLine("You have died in your previous life and you got another life chance");
             Console.WriteLine("The only thing you can't change in this life is the age. Since you died at the age of " + age + " years old. You will continue to live from that age");
             Console.WriteLine("How do you wanna be called in your new life?");
-            string playerName = Console.ReadLine();
+            playerName = Console.ReadLine();
 
             Console.WriteLine("Welcome to Chanalnia," + playerName + "");
 
@@ -35,10 +53,14 @@ namespace Text_Adventure
             Console.WriteLine("I'm going to help you make life choices");
 
             Console.WriteLine("What gender do you wanna be in your new life");
-            string playerGender = Console.ReadLine();
+            playerGender = Console.ReadLine();
 
             Console.WriteLine("That's great!" + playerGender + " is a great choice for a new life.");
 
+        }
+
+        static void MiniWorld()
+        {
             Console.WriteLine("Now," + playerName + " let's do some life choices...");
 
             //Choice of mini worlds
@@ -83,8 +105,17 @@ namespace Text_Adventure
                 Console.WriteLine("What power do you want to aquire?");
                 string powerchoice = Console.ReadLine();
 
-                Console.WriteLine("OMGGGG... I wish i was a " + powerchoice+ ". You will have better life than I");
+                Console.WriteLine("OMGGGG... I wish i was a " + powerchoice + ". You will have better life than I");
             }
+            else
+            {
+                Console.WriteLine("Invalid Choice... Chose the underground or the ground");
+                MiniWorld();
+            }
+        }
+
+        static void Money()
+        {
 
             // Opperators & Functions
             {
@@ -94,24 +125,28 @@ namespace Text_Adventure
             Console.WriteLine("In this life too it will be the same. In Chanalnia we use Rowey for our curency for your daily use.");
             Console.WriteLine("For the beginning of your life How much would do like? Think wisely because after this amount you will have to work to get more.");
 
-            double rowey = Convert.ToDouble(Console.ReadLine());
-
-            if (rowey >=1 && rowey <= 20000)
+            try
             {
+                double rowey = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Ouf, I thought you will ask for 1000000000 ");
-                Console.WriteLine("Okay you will get" + rowey + Roweysymbol);
+                if (rowey >= 1 && rowey <= 20000)
+                {
+
+                    Console.WriteLine("Ouf, I thought you will ask for 1000000000 ");
+                    Console.WriteLine("Okay you will get" + rowey + Roweysymbol);
+                }
+                else if (rowey <= 0 || rowey >= 30000)
+                {
+                    Console.WriteLine("EXCUSE YOUUUUUUUUUU !! Are you okay " + playerName + " ?");
+                }
             }
-            else if (rowey <= 0 || rowey >= 30000)
+            catch
             {
-                Console.WriteLine("EXCUSE YOUUUUUUUUUU !! Are you okay " + playerName + " ?");
+                Console.WriteLine("Invalid Choice... Chose a real number");
+                Money();
             }
 
-            Console.WriteLine("Press any key for next");
-                Console.ReadKey();
-
-
-            }
         }
     }
+}
     
